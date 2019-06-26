@@ -1,0 +1,73 @@
+<div class="container">
+  <form class="row">
+    <div class="form-group col-3">
+      <label>Bill To</label>
+      <input type="text" class="form-control" value="Test 3" disabled="disabled">
+    </div>
+    <div class="form-group col-3">
+      <label>Invoice Date</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="Invoice Date" name="dp" [(ngModel)]="model" ngbDatepicker
+          #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>Due Date</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="Due Date" name="dp1" [(ngModel)]="model1" ngbDatepicker
+          #d1="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>Note</label>
+      <textarea type="text" class="form-control" placeholder="Note"></textarea>
+    </div>
+    <div class="float-fix">
+      <button class="btn btn-primary float-right">Submit</button>
+    </div>
+  </form>
+
+  <p class="mb-2 mt-5">ORDER NUMBER: 1234</p>
+
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+        <th scope="col">
+          <div class="custom-control custom-checkbox my-1 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" id="customControlInline1">
+            <label class="custom-control-label" for="customControlInline1"></label>
+          </div>
+        </th>
+        <th scope="col">Bill To</th>
+        <th scope="col">Invoice Date</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of lists; index as i">
+        <td>
+          <div class="custom-control custom-checkbox my-1 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" id="customControlInline">
+            <label class="custom-control-label" for="customControlInline"></label>
+          </div>
+        </td>
+        <td>{{ list.orderno }}</td>
+        <td>{{ list.containerno }}</td>
+        <td>{{ list.dueDate }}</td>
+        <td>
+          <input type="text" class="form-control">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="float-fix mb-5">
+    <button class="btn btn-primary float-right" routerLink="/invoice">Preview Invoice</button>
+  </div>
+</div>

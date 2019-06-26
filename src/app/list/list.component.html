@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-12 text-right">
+      <button class="btn btn-primary" routerLink="/orders">Generate Invoice</button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Bill To</th>
+        <th scope="col">Invoice Date</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of lists; index as i">
+        <td>{{ list.billto }}</td>
+        <td>{{ list.invoiceDate }}</td>
+        <td>{{ list.dueDate }}</td>
+        <td>
+          <a><img src="../../assets/images/edit.png" alt=""></a>
+          <a><img src="../../assets/images/delete.png" alt=""></a>
+          <a><img src="../../assets/images/paid.png" alt=""></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
